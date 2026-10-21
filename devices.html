@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Устройства — Smart Campus AI</title>
+<script>try{if(localStorage.getItem("sc_theme")==="light")document.documentElement.classList.add("light")}catch(e){}</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="devices">
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar" id="topbar"></header>
+    <main class="content">
+      <div class="page-head">
+        <div><h1>IoT-устройства</h1><p>Датчики, счётчики, контроллеры и камеры</p></div>
+        <div class="head-actions"><button class="btn" id="simBtn">⟳ Обновить показания</button></div>
+      </div>
+      <div class="toolbar">
+        <input type="search" id="devSearch" placeholder="Поиск по ID, помещению, типу…" aria-label="Поиск устройств">
+        <select id="devStatus" aria-label="Статус">
+          <option value="">Все статусы</option>
+          <option value="online">Online</option>
+          <option value="offline">Offline</option>
+        </select>
+        <select id="devType" aria-label="Тип"><option value="">Все типы</option></select>
+        <select id="devBuilding" aria-label="Корпус"><option value="">Все корпуса</option></select>
+      </div>
+      <p class="count-line" id="countLine"></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Sensor ID</th><th>Помещение</th><th>Тип</th><th>Статус</th><th>Значение</th><th>Обновлено</th><th>Действие</th></tr></thead>
+          <tbody id="devBody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/ai.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/devices.js"></script>
+</body>
+</html>

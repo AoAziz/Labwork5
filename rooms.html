@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Аудитории — Smart Campus AI</title>
+<script>try{if(localStorage.getItem("sc_theme")==="light")document.documentElement.classList.add("light")}catch(e){}</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="rooms">
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar" id="topbar"></header>
+    <main class="content">
+      <div class="page-head">
+        <div><h1>Аудитории и помещения</h1><p>Температура, CO₂, энергия, занятость и статус</p></div>
+        <div class="head-actions"><button class="btn" id="simBtn">⟳ Обновить показания</button></div>
+      </div>
+      <div class="toolbar">
+        <input type="search" id="roomSearch" placeholder="Поиск по номеру, типу, корпусу…" aria-label="Поиск помещений">
+        <select id="statusFilter" aria-label="Фильтр по статусу">
+          <option value="">Все статусы</option>
+          <option value="normal">Норма</option>
+          <option value="warning">Внимание</option>
+          <option value="critical">Критично</option>
+        </select>
+        <select id="buildingFilter" aria-label="Фильтр по корпусу"><option value="">Все корпуса</option></select>
+      </div>
+      <p class="count-line" id="countLine"></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Корпус</th><th>Этаж</th><th>Тип</th><th>t, °C</th><th>CO₂, ppm</th><th>Энергия</th><th>Людей</th><th>Статус</th><th>Рекомендация AI</th></tr></thead>
+          <tbody id="roomsBody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/ai.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/rooms.js"></script>
+</body>
+</html>

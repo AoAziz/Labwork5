@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вход — Smart Campus AI</title>
+<script>try{if(localStorage.getItem("sc_theme")==="light")document.documentElement.classList.add("light")}catch(e){}</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="login" class="login-page">
+<main class="card login-card">
+  <div class="logo">🎓</div>
+  <h1>Smart Campus AI</h1>
+  <p>Интеллектуальная платформа управления кампусом. Учебный вход: проверка форм без настоящей защиты.</p>
+  <form class="form" id="loginForm" novalidate>
+    <label>Email
+      <input type="email" id="email" placeholder="admin@campus.edu" autocomplete="username" required>
+    </label>
+    <label>Пароль
+      <input type="password" id="password" placeholder="минимум 4 символа" autocomplete="current-password" required>
+    </label>
+    <label>Роль
+      <select id="role">
+        <option value="Administrator">Administrator</option>
+        <option value="Engineer">Engineer</option>
+        <option value="Operator">Operator</option>
+      </select>
+    </label>
+    <div class="err" id="loginError" role="alert"></div>
+    <button class="btn" type="submit">Войти</button>
+  </form>
+  <p class="small-text" style="margin-top:14px">Подсказка: подойдёт любой email и пароль от 4 символов. Роль Operator не может удалять заявки.</p>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/ai.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/login.js"></script>
+</body>
+</html>

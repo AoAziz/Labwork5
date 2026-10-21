@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Analytics — Smart Campus AI</title>
+<script>try{if(localStorage.getItem("sc_theme")==="light")document.documentElement.classList.add("light")}catch(e){}</script>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="analytics">
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar" id="topbar"></header>
+    <main class="content">
+      <div class="page-head">
+        <div><h1>🧠 AI Analytics</h1><p>Пороги + z-score + правила: аномалии, причины, риск и рекомендации</p></div>
+        <div class="head-actions"><button class="btn" id="simBtn">⟳ Обновить показания</button></div>
+      </div>
+
+      <section class="grid kpis" id="kpis"></section>
+
+      <section class="grid charts">
+        <div class="card"><h3>CO₂ по помещениям, ppm</h3><div class="chart-box"><canvas id="co2Chart"></canvas></div></div>
+        <div class="card"><h3>Температура по помещениям, °C</h3><div class="chart-box"><canvas id="tempRoomChart"></canvas></div></div>
+        <div class="card"><h3>Энергия к базовой линии, %</h3><div class="chart-box"><canvas id="energyRatioChart"></canvas></div></div>
+      </section>
+
+      <div class="card" style="margin-bottom:16px">
+        <h3>Обнаруженные аномалии</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Помещение</th><th>Параметр</th><th>Значение</th><th>Метод</th><th>z</th><th>Риск</th><th>Причина</th><th>Рекомендация</th><th></th></tr></thead>
+            <tbody id="anomBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3 style="margin:22px 0 12px">Рекомендации по помещениям</h3>
+      <section class="grid rec-grid" id="recGrid"></section>
+
+      <div class="info" style="margin-top:20px">
+        <b>Как это работает.</b> Для каждого параметра берутся последние показания помещения; если текущее значение отличается от среднего более чем на заданное число σ (порог z-score в настройках), оно помечается аномалией. Параллельно проверяются фиксированные пороги и правило «нет людей, но высокое потребление». Это статистика и правила, а не генеративный AI.
+      </div>
+    </main>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/ai.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/analytics.js"></script>
+</body>
+</html>
